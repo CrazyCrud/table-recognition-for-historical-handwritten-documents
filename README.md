@@ -14,3 +14,4 @@ docker logs --tail 3 jupyter
 
 ### Image processing - Gabor filter with morphological openingdocker-compose
 
+...work in progress
