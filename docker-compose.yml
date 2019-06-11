@@ -1,0 +1,9 @@
+version: "3"
+services:
+  jupyter:
+    container_name: "jupyter"
+    build: ./
+    volumes:
+      - ./work:/home/jovyan/work
+    ports:
+      - 8888:8888
