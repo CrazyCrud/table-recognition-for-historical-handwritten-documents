@@ -22,7 +22,9 @@ Next, Otsu binarization is conducted.
 
 After the binarization process, resulted images are found to have a lot of noise elements. Thus, removing element based on element size is adopted (Removing elements with width or height less or equal than one). Another approach would be the use of morphological opening.
 
-Liang took it a step further and studied ways to break down the connected components including text and line element. She adopted Hough line transformation and apply it on all Connected Components (CCs) to refine their shape before feature extraction.
+Liang took it a step further and studied ways to break down the connected components including text and line element. She adopted Hough line transformation and apply it on all Connected Components (CCs) to refine their shape before feature extraction. Before performing this operation, orientation and length of all the CCs wich are true table lines in training data are analyzed and their orientation range and the smallest length among them respectively in horizontal and vertical category are aquired. The orientation range for each CC is used as input parameter as well as *0.9xlength* of current CC is used as shortest detecting length in Hough line transform.
+
+The resulting line images are annotated and used as training data for the following steps.
 
 ...work in progress
 
