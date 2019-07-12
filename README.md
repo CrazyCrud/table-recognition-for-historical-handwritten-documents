@@ -1,5 +1,10 @@
 # Table recognition for historical handwritten documents
-Based on the approach of [Liang, Xusheng](http://www.diva-portal.org/smash/record.jsf?pid=diva2:1292198) and [Lee, Benjamin](https://dcicblog.umd.edu/cas/wp-content/uploads/sites/13/2017/06/Lee.pdf) I tried to regonize handwritten tables.
+
+
+Based on the approach of [Liang, Xusheng](http://www.diva-portal.org/smash/record.jsf?pid=diva2:1292198) and [Lee, Benjamin](https://dcicblog.umd.edu/cas/wp-content/uploads/sites/13/2017/06/Lee.pdf) I tried to regonize handwritten tables. 
+
+Liang's approach to extract lines based on connected components wasn't successfull. Instead Hough transformation needed to be applied.
+
 
 ## Run
 ```
