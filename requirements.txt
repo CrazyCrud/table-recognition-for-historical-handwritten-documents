@@ -1,3 +1,5 @@
 matplotlib
 numpy
 opencv-contrib-python
+scipy
+sklearn

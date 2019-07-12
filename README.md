@@ -1,5 +1,5 @@
 # Table recognition for historical handwritten documents
-Based on the approach of [Liang, Xusheng](http://www.diva-portal.org/smash/record.jsf?pid=diva2:1292198)
+Based on the approach of [Liang, Xusheng](http://www.diva-portal.org/smash/record.jsf?pid=diva2:1292198) and [Lee, Benjamin](https://dcicblog.umd.edu/cas/wp-content/uploads/sites/13/2017/06/Lee.pdf) I tried to regonize handwritten tables.
 
 ## Run
 ```
@@ -20,12 +20,24 @@ Then Gabor filter are used to extract the roughly horizontal and vertical foregr
 
 Next, Otsu binarization is conducted.
 
-After the binarization process, resulted images are found to have a lot of noise elements. Thus, removing element based on element size is adopted (Removing elements with width or height less or equal than one). Another approach would be the use of morphological opening.
+After the binarization process, resulted images are found to have a lot of noise elements. Thus, removing element based on element size is adopted (removing elements with width or height less or equal than one). Another approach would be the use of morphological opening which provided worse results.
+
+
+### Line Detection
+
 
 Liang took it a step further and studied ways to break down the connected components including text and line element. She adopted Hough line transformation and apply it on all Connected Components (CCs) to refine their shape before feature extraction. Before performing this operation, orientation and length of all the CCs wich are true table lines in training data are analyzed and their orientation range and the smallest length among them respectively in horizontal and vertical category are aquired. The orientation range for each CC is used as input parameter as well as *0.9xlength* of current CC is used as shortest detecting length in Hough line transform.
 
-The resulting line images are annotated and used as training data for the following steps.
+But in this case, the whole table is recognized as a connected component so the lines ca not be separeted.
 
-...work in progress
+In another attempt, I tried to recognize separate lines by their contour shape which didn't work out, too.
 
-### CC Production and Annotation
+To recognize the lines Hough transformation is applied and the resulting lines are then filtered (Lee, 2017). 
+
+
+### Cell Construction
+
+
+The filtered lines are segmented into vertical and horizontal lines. Afterwards the intersection points are calculated and clustered by utilising the [MeanShift](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.MeanShift.html) algorithm.
+
+The resulting clusters represent the corner points of each table cell.
