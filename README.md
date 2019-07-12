@@ -15,6 +15,8 @@ To receive the unique token to access Jupyter run:
 docker logs --tail 3 jupyter
 ```
 
+Or you can just view the [ipynb file](https://github.com/CrazyCrud/table_recognition_for_historical_handwritten_documents/blob/master/work/Table%20Recognition.ipynb).
+
 ## Implementation
 
 ### Preprocessing
