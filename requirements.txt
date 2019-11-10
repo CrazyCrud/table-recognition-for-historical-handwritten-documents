@@ -1,4 +1,6 @@
+hausdorff
 matplotlib
+numba
 numpy
 opencv-contrib-python
 scipy
